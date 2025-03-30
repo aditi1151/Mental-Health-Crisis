@@ -1,0 +1,164 @@
+{% extends "layout.html" %}
+
+{% block title %}- Profile{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h5 class="mb-0 font-weight-bold text-primary">Your Profile</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-md-3 text-center">
+                            <div class="avatar-circle mx-auto mb-3">
+                                <span class="avatar-text">{{ current_user.username[0].upper() }}</span>
+                            </div>
+                            <h5>{{ current_user.username }}</h5>
+                            <p class="text-muted small">Member since {{ current_user.created_at.strftime('%b %d, %Y') }}</p>
+                        </div>
+                        <div class="col-md-9">
+                            <h5>Account Information</h5>
+                            <p><strong>Email:</strong> {{ current_user.email }}</p>
+                            
+                            <hr class="my-3">
+                            
+                            <h5>Update Profile</h5>
+                            <form method="post" action="{{ url_for('profile') }}">
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email" name="email" value="{{ current_user.email }}">
+                                </div>
+                                
+                                <h5 class="mt-4">Change Password</h5>
+                                <div class="mb-3">
+                                    <label for="current_password" class="form-label">Current Password</label>
+                                    <input type="password" class="form-control" id="current_password" name="current_password">
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="new_password" class="form-label">New Password</label>
+                                    <input type="password" class="form-control" id="new_password" name="new_password">
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="confirm_password" class="form-label">Confirm New Password</label>
+                                    <input type="password" class="form-control" id="confirm_password" name="confirm_password">
+                                </div>
+                                
+                                <div class="d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save me-2"></i> Save Changes
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h5 class="mb-0 font-weight-bold text-primary">Activity Summary</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4 text-center mb-4 mb-md-0">
+                            <div class="circle-stat">
+                                <h2>{{ current_user.moods.count() }}</h2>
+                            </div>
+                            <h6>Mood Entries</h6>
+                        </div>
+                        
+                        <div class="col-md-4 text-center mb-4 mb-md-0">
+                            <div class="circle-stat">
+                                <h2>{{ current_user.assessments.count() }}</h2>
+                            </div>
+                            <h6>Assessments Taken</h6>
+                        </div>
+                        
+                        <div class="col-md-4 text-center">
+                            <div class="circle-stat">
+                                <h2>{{ current_user.chat_sessions.count() }}</h2>
+                            </div>
+                            <h6>Chat Sessions</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card shadow">
+                <div class="card-header py-3">
+                    <h5 class="mb-0 font-weight-bold text-primary">Privacy & Data</h5>
+                </div>
+                <div class="card-body">
+                    <p>Your privacy is important to us. Here's how we handle your data:</p>
+                    
+                    <div class="mb-3">
+                        <h6><i class="fas fa-lock me-2"></i> Data Security</h6>
+                        <p class="small">All your information is encrypted and stored securely. We implement industry-standard security measures to protect your personal data.</p>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <h6><i class="fas fa-user-shield me-2"></i> Privacy Protection</h6>
+                        <p class="small">We don't share your personal information with third parties. Your assessment results, mood entries, and chat conversations remain private.</p>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <h6><i class="fas fa-download me-2"></i> Data Download</h6>
+                        <p class="small">You can request a copy of your data at any time. This includes your profile information, assessment results, mood entries, and chat history.</p>
+                        <button class="btn btn-sm btn-outline-primary mb-3">
+                            <i class="fas fa-download me-1"></i> Download My Data
+                        </button>
+                    </div>
+                    
+                    <div>
+                        <h6><i class="fas fa-trash me-2"></i> Account Deletion</h6>
+                        <p class="small">You can delete your account and all associated data. This action is permanent and cannot be undone.</p>
+                        <button class="btn btn-sm btn-outline-danger">
+                            <i class="fas fa-trash me-1"></i> Delete My Account
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .avatar-circle {
+        width: 100px;
+        height: 100px;
+        background-color: var(--bs-primary);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .avatar-text {
+        font-size: 42px;
+        color: white;
+        font-weight: bold;
+    }
+    
+    .circle-stat {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 3px solid var(--bs-primary);
+        margin: 0 auto 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .circle-stat h2 {
+        margin: 0;
+        font-size: 1.8rem;
+        color: var(--bs-primary);
+    }
+</style>
+{% endblock %}

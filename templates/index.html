@@ -1,0 +1,149 @@
+{% extends "layout.html" %}
+
+{% block title %}- Home{% endblock %}
+
+{% block content %}
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <h1 class="display-4 mb-4">Your Mental Wellbeing Matters</h1>
+                <p class="lead mb-4">Take the first step towards better mental health with our AI-powered tools, assessments, and personalized support.</p>
+                {% if not current_user.is_authenticated %}
+                <div class="d-flex gap-3">
+                    <a href="{{ url_for('register') }}" class="btn btn-light btn-lg">Get Started</a>
+                    <a href="{{ url_for('login') }}" class="btn btn-outline-light btn-lg">Sign In</a>
+                </div>
+                {% else %}
+                <a href="{{ url_for('dashboard') }}" class="btn btn-light btn-lg">Go to Dashboard</a>
+                {% endif %}
+            </div>
+            <div class="col-lg-5 d-none d-lg-block">
+                <div class="text-center">
+                    <svg width="350" height="300" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M400 90C240 90 110 220 110 380C110 540 240 670 400 670C560 670 690 540 690 380C690 220 560 90 400 90Z" fill="#36b9cc" opacity="0.3"/>
+                        <path d="M400 140C267.5 140 160 247.5 160 380C160 512.5 267.5 620 400 620C532.5 620 640 512.5 640 380C640 247.5 532.5 140 400 140Z" fill="#4e73df" opacity="0.5"/>
+                        <path d="M400 210C306.5 210 230 286.5 230 380C230 473.5 306.5 550 400 550C493.5 550 570 473.5 570 380C570 286.5 493.5 210 400 210Z" fill="#1cc88a" opacity="0.7"/>
+                        <path d="M400 300C356.5 300 320 336.5 320 380C320 423.5 356.5 460 400 460C443.5 460 480 423.5 480 380C480 336.5 443.5 300 400 300Z" fill="#ffffff"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">How Mental Supports Your Mental Health Journey</h2>
+        
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <i class="fas fa-clipboard-check fa-3x text-primary"></i>
+                        </div>
+                        <h4 class="card-title">Validated Assessments</h4>
+                        <p class="card-text">Access scientifically validated screening tools for depression, anxiety, and stress to better understand your mental health status.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <i class="fas fa-chart-line fa-3x text-success"></i>
+                        </div>
+                        <h4 class="card-title">Mood Tracking</h4>
+                        <p class="card-text">Monitor your emotional patterns over time with our simple mood tracking tool, helping you identify triggers and progress.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <i class="fas fa-robot fa-3x text-info"></i>
+                        </div>
+                        <h4 class="card-title">AI Support Chat</h4>
+                        <p class="card-text">Connect with our AI-powered emotional support chatbot anytime for understanding, validation, and coping strategies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-3">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <i class="fas fa-lightbulb fa-3x text-warning"></i>
+                        </div>
+                        <h4 class="card-title">Personalized Recommendations</h4>
+                        <p class="card-text">Receive tailored activities and resources based on your unique needs, preferences, and assessment results.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <i class="fas fa-book-open fa-3x text-danger"></i>
+                        </div>
+                        <h4 class="card-title">Resource Library</h4>
+                        <p class="card-text">Access a comprehensive collection of articles, exercises, and guides on various mental health topics and coping strategies.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <i class="fas fa-lock fa-3x text-secondary"></i>
+                        </div>
+                        <h4 class="card-title">Privacy-Focused</h4>
+                        <p class="card-text">Your data privacy is our priority. All your information is kept confidential and secure with our privacy-first approach.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h2 class="mb-4">Breaking the Stigma Around Mental Health</h2>
+                <p class="lead mb-4">Mental health challenges affect millions worldwide, but many don't seek help due to stigma or lack of access.</p>
+                <p>At Mind, we believe that technology can bridge this gap, providing accessible, confidential support for everyone, anywhere. Our platform combines evidence-based approaches with cutting-edge AI to deliver personalized mental health support.</p>
+                <p>While we're not a replacement for professional care, we aim to be a valuable companion on your mental health journey, helping you monitor your wellbeing, learn coping strategies, and connect to resources when needed.</p>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="disclaimer mb-4">
+                            <h5><i class="fas fa-info-circle me-2"></i> Important Note</h5>
+                            <p>This platform is designed as a supportive tool, not a replacement for professional mental health care. If you're experiencing severe symptoms or thoughts of self-harm, please seek immediate professional help.</p>
+                            <a href="{{ url_for('resources') }}" class="btn btn-outline-primary">Crisis Resources</a>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <p class="mb-2"><strong>Ready to take the first step?</strong></p>
+                            {% if not current_user.is_authenticated %}
+                            <a href="{{ url_for('register') }}" class="btn btn-primary">Create Free Account</a>
+                            {% else %}
+                            <a href="{{ url_for('dashboard') }}" class="btn btn-primary">Go to Dashboard</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

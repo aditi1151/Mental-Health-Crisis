@@ -1,0 +1,362 @@
+{% extends "layout.html" %}
+
+{% block title %}- Resources{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row mb-4">
+        <div class="col">
+            <h1 class="h3 mb-2">Mental Health Resources</h1>
+            <p class="lead">A curated collection of helpful materials to support your mental health journey</p>
+        </div>
+    </div>
+    
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 bg-danger text-white">
+            <h5 class="mb-0"><i class="fas fa-phone-alt me-2"></i> Crisis Resources</h5>
+        </div>
+        <div class="card-body">
+            <div class="alert alert-warning">
+                <strong>Important:</strong> If you're experiencing a mental health emergency or having thoughts of self-harm, please reach out for immediate help.
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">988 Suicide & Crisis Lifeline</h5>
+                            <p class="card-text">Free and confidential support for people in distress, 24/7.</p>
+                            <p class="mb-0"><strong>Call or Text:</strong> 988</p>
+                            <p><strong>Online:</strong> <a href="https://988lifeline.org/" target="_blank">988lifeline.org</a></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Crisis Text Line</h5>
+                            <p class="card-text">Free, 24/7 text support with a trained Crisis Counselor.</p>
+                            <p class="mb-0"><strong>Text:</strong> HOME to 741741</p>
+                            <p><strong>Online:</strong> <a href="https://www.crisistextline.org/" target="_blank">crisistextline.org</a></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Emergency Services</h5>
+                            <p class="card-text">For immediate danger to yourself or others, contact emergency services.</p>
+                            <p class="mb-0"><strong>Call:</strong> 911 (US)</p>
+                            <p>Or go to your nearest emergency room</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card shadow">
+                <div class="card-header py-3">
+                    <h5 class="mb-0 font-weight-bold text-primary">Browse Resources by Category</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                            <a href="#anxiety" class="text-decoration-none">
+                                <div class="card bg-light text-center h-100">
+                                    <div class="card-body">
+                                        <i class="fas fa-wind fa-2x text-primary mb-3"></i>
+                                        <h5 class="card-title">Anxiety</h5>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                            <a href="#depression" class="text-decoration-none">
+                                <div class="card bg-light text-center h-100">
+                                    <div class="card-body">
+                                        <i class="fas fa-cloud-rain fa-2x text-primary mb-3"></i>
+                                        <h5 class="card-title">Depression</h5>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                            <a href="#stress" class="text-decoration-none">
+                                <div class="card bg-light text-center h-100">
+                                    <div class="card-body">
+                                        <i class="fas fa-bolt fa-2x text-primary mb-3"></i>
+                                        <h5 class="card-title">Stress Management</h5>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                            <a href="#sleep" class="text-decoration-none">
+                                <div class="card bg-light text-center h-100">
+                                    <div class="card-body">
+                                        <i class="fas fa-moon fa-2x text-primary mb-3"></i>
+                                        <h5 class="card-title">Sleep</h5>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                            <a href="#mindfulness" class="text-decoration-none">
+                                <div class="card bg-light text-center h-100">
+                                    <div class="card-body">
+                                        <i class="fas fa-spa fa-2x text-primary mb-3"></i>
+                                        <h5 class="card-title">Mindfulness</h5>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                            <a href="#selfcare" class="text-decoration-none">
+                                <div class="card bg-light text-center h-100">
+                                    <div class="card-body">
+                                        <i class="fas fa-heart fa-2x text-primary mb-3"></i>
+                                        <h5 class="card-title">Self-Care</h5>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                            <a href="#relationships" class="text-decoration-none">
+                                <div class="card bg-light text-center h-100">
+                                    <div class="card-body">
+                                        <i class="fas fa-users fa-2x text-primary mb-3"></i>
+                                        <h5 class="card-title">Relationships</h5>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                            <a href="#professional" class="text-decoration-none">
+                                <div class="card bg-light text-center h-100">
+                                    <div class="card-body">
+                                        <i class="fas fa-user-md fa-2x text-primary mb-3"></i>
+                                        <h5 class="card-title">Finding Professional Help</h5>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if resources_by_category %}
+        {% for category, resources in resources_by_category.items() %}
+        <section id="{{ category.lower() }}" class="mb-5">
+            <h3 class="mb-4">{{ category }}</h3>
+            <div class="row">
+                {% for resource in resources %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card resource-card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ resource.title }}</h5>
+                            <p class="card-text">{{ resource.description }}</p>
+                            {% if resource.external_url %}
+                            <a href="{{ resource.external_url }}" target="_blank" class="btn btn-outline-primary">View Resource</a>
+                            {% endif %}
+                        </div>
+                        <div class="card-footer text-muted d-flex justify-content-between">
+                            <small>{{ resource.resource_type|capitalize }}</small>
+                            <small>Added: {{ resource.created_at.strftime('%b %d, %Y') }}</small>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% endfor %}
+    {% else %}
+    <section id="anxiety" class="mb-5">
+        <h3 class="mb-4">Anxiety</h3>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card resource-card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Understanding Anxiety Disorders</h5>
+                        <p class="card-text">An overview of different anxiety disorders, their symptoms, and common treatments.</p>
+                        <a href="https://www.nimh.nih.gov/health/topics/anxiety-disorders" target="_blank" class="btn btn-outline-primary">View Resource</a>
+                    </div>
+                    <div class="card-footer text-muted d-flex justify-content-between">
+                        <small>Article</small>
+                        <small>NIMH</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card resource-card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Grounding Techniques for Anxiety</h5>
+                        <p class="card-text">Simple exercises to help ground yourself when feeling anxious or overwhelmed.</p>
+                        <a href="https://www.healthline.com/health/grounding-techniques" target="_blank" class="btn btn-outline-primary">View Resource</a>
+                    </div>
+                    <div class="card-footer text-muted d-flex justify-content-between">
+                        <small>Exercise</small>
+                        <small>Healthline</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card resource-card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Box Breathing for Anxiety Relief</h5>
+                        <p class="card-text">Learn the box breathing technique to help manage anxiety symptoms in the moment.</p>
+                        <a href="https://www.healthline.com/health/box-breathing" target="_blank" class="btn btn-outline-primary">View Resource</a>
+                    </div>
+                    <div class="card-footer text-muted d-flex justify-content-between">
+                        <small>Exercise</small>
+                        <small>Healthline</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="depression" class="mb-5">
+        <h3 class="mb-4">Depression</h3>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card resource-card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Depression: Understanding the Basics</h5>
+                        <p class="card-text">Learn about depression symptoms, causes, and treatment options.</p>
+                        <a href="https://www.nimh.nih.gov/health/topics/depression" target="_blank" class="btn btn-outline-primary">View Resource</a>
+                    </div>
+                    <div class="card-footer text-muted d-flex justify-content-between">
+                        <small>Article</small>
+                        <small>NIMH</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card resource-card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Behavioral Activation for Depression</h5>
+                        <p class="card-text">A simple, evidence-based technique to help combat depression by increasing positive activities.</p>
+                        <a href="https://www.psychologytools.com/self-help/behavioral-activation" target="_blank" class="btn btn-outline-primary">View Resource</a>
+                    </div>
+                    <div class="card-footer text-muted d-flex justify-content-between">
+                        <small>Exercise</small>
+                        <small>Psychology Tools</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card resource-card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Coping with Depression</h5>
+                        <p class="card-text">Practical strategies for managing depression symptoms in daily life.</p>
+                        <a href="https://www.helpguide.org/articles/depression/coping-with-depression.htm" target="_blank" class="btn btn-outline-primary">View Resource</a>
+                    </div>
+                    <div class="card-footer text-muted d-flex justify-content-between">
+                        <small>Article</small>
+                        <small>HelpGuide</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    {% endif %}
+    
+    <section id="professional" class="mb-5">
+        <div class="card shadow">
+            <div class="card-header py-3">
+                <h5 class="mb-0 font-weight-bold text-primary">Finding Professional Help</h5>
+            </div>
+            <div class="card-body">
+                <p class="lead">While self-help resources are valuable, sometimes professional support is needed. Here are some ways to find mental health professionals:</p>
+                
+                <div class="row mt-4">
+                    <div class="col-md-6 mb-4">
+                        <div class="d-flex">
+                            <div class="me-3">
+                                <i class="fas fa-search fa-2x text-primary"></i>
+                            </div>
+                            <div>
+                                <h5>Therapist Directories</h5>
+                                <ul class="ps-3">
+                                    <li><a href="https://www.psychologytoday.com/us/therapists" target="_blank">Psychology Today Therapist Directory</a></li>
+                                    <li><a href="https://www.therapistlocator.net" target="_blank">American Association of Marriage and Family Therapists</a></li>
+                                    <li><a href="https://members.adaa.org/page/FATMain" target="_blank">Anxiety and Depression Association of America</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="d-flex">
+                            <div class="me-3">
+                                <i class="fas fa-laptop-medical fa-2x text-primary"></i>
+                            </div>
+                            <div>
+                                <h5>Telehealth Options</h5>
+                                <ul class="ps-3">
+                                    <li><a href="https://www.talkspace.com" target="_blank">Talkspace</a> - Online therapy</li>
+                                    <li><a href="https://www.betterhelp.com" target="_blank">BetterHelp</a> - Online counseling</li>
+                                    <li><a href="https://www.amwell.com/services/therapy" target="_blank">Amwell</a> - Telehealth including therapy</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="d-flex">
+                            <div class="me-3">
+                                <i class="fas fa-hospital fa-2x text-primary"></i>
+                            </div>
+                            <div>
+                                <h5>Community Resources</h5>
+                                <ul class="ps-3">
+                                    <li>Community mental health centers</li>
+                                    <li>University psychology departments</li>
+                                    <li>Hospital departments of psychiatry</li>
+                                    <li>Employee Assistance Programs (EAPs)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="d-flex">
+                            <div class="me-3">
+                                <i class="fas fa-hand-holding-heart fa-2x text-primary"></i>
+                            </div>
+                            <div>
+                                <h5>Low-Cost Options</h5>
+                                <ul class="ps-3">
+                                    <li><a href="https://openpathcollective.org" target="_blank">Open Path Psychotherapy Collective</a> - Affordable therapy</li>
+                                    <li>Sliding scale fee therapists</li>
+                                    <li>Training clinics at universities</li>
+                                    <li>Community health centers</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,406 @@
+/* Custom styles for Mental Health Support Website */
+
+/* General styles */
+html, body {
+    height: 100%;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .content-wrapper {
+    flex: 1;
+  }
+  
+  /* Hero section */
+  .hero-section {
+    background: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
+    color: #fff;
+    padding: 5rem 0;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-section h1 {
+    font-weight: 600;
+  }
+  
+  /* Card customizations */
+  .card {
+    border-radius: 0.5rem;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+    margin-bottom: 1.5rem;
+  }
+  
+  .card-header {
+    background-color: rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    padding: 1rem 1.25rem;
+  }
+  
+  .card-header h5 {
+    margin-bottom: 0;
+  }
+  
+  /* Assessment styles */
+  .assessment-question {
+    border-left: 4px solid transparent;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: 0.25rem;
+    transition: all 0.2s ease;
+  }
+  
+  .assessment-question.answered {
+    border-left-color: #1cc88a;
+  }
+  
+  .assessment-question.unanswered {
+    border-left-color: #e74a3b;
+  }
+  
+  .assessment-question.has-error {
+    background-color: rgba(231, 74, 59, 0.05);
+  }
+  
+  .question-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  
+  .option-label {
+    cursor: pointer;
+    display: block;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    transition: all 0.2s ease;
+  }
+  
+  .option-label:hover {
+    background-color: rgba(78, 115, 223, 0.1);
+  }
+  
+  input[type="radio"]:checked + .option-label {
+    background-color: rgba(78, 115, 223, 0.2);
+    border-color: #4e73df;
+  }
+  
+  /* Progress bar for assessments */
+  .assessment-progress {
+    height: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Mood tracker styles */
+  .mood-slider-container {
+    padding: 1.5rem 0;
+  }
+  
+  #mood-slider {
+    width: 100%;
+  }
+  
+  #mood-emoji {
+    font-size: 2.5rem;
+    margin: 0.5rem 0;
+  }
+  
+  .activity-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  /* Chatbot styles */
+  .chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+    min-height: 400px;
+    margin-bottom: 1rem;
+  }
+  
+  .chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: 0.25rem;
+  }
+  
+  .chat-message {
+    display: flex;
+    margin-bottom: 1rem;
+  }
+  
+  .message-content {
+    max-width: 75%;
+    padding: 0.75rem 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-message .message-content {
+    border-top-right-radius: 0;
+  }
+  
+  .bot-message .message-content {
+    border-top-left-radius: 0;
+  }
+  
+  .typing-indicator {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+  }
+  
+  .typing-indicator span {
+    height: 0.5rem;
+    width: 0.5rem;
+    margin: 0 0.1rem;
+    background-color: #6c757d;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.4;
+  }
+  
+  .typing-indicator span:nth-child(1) {
+    animation: typing 1.2s infinite ease-in-out;
+  }
+  
+  .typing-indicator span:nth-child(2) {
+    animation: typing 1.2s infinite ease-in-out 0.2s;
+  }
+  
+  .typing-indicator span:nth-child(3) {
+    animation: typing 1.2s infinite ease-in-out 0.4s;
+  }
+  
+  @keyframes typing {
+    0% {
+      transform: translateY(0);
+      opacity: 0.4;
+    }
+    50% {
+      transform: translateY(-0.5rem);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 0.4;
+    }
+  }
+  
+  /* Results visualization */
+  .results-chart-container {
+    position: relative;
+    height: 200px;
+    width: 200px;
+    margin: 0 auto;
+  }
+  
+  .chart-score-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .chart-score {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+  
+  .chart-score-separator {
+    font-size: 1.5rem;
+    opacity: 0.7;
+  }
+  
+  .chart-max-score {
+    font-size: 1.5rem;
+    opacity: 0.7;
+  }
+  
+  /* Resource library styles */
+  .resource-card {
+    height: 100%;
+    transition: transform 0.2s ease;
+  }
+  
+  .resource-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .resource-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Recommendations styles */
+  .recommendation {
+    border-left: 4px solid #4e73df;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: rgba(78, 115, 223, 0.05);
+    border-radius: 0.25rem;
+    transition: all 0.2s ease;
+  }
+  
+  .recommendation.completed {
+    border-left-color: #1cc88a;
+    opacity: 0.7;
+  }
+  
+  .recommendation-type {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 0.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .recommendation-type.exercise {
+    background-color: rgba(78, 115, 223, 0.2);
+    color: #4e73df;
+  }
+  
+  .recommendation-type.meditation {
+    background-color: rgba(28, 200, 138, 0.2);
+    color: #1cc88a;
+  }
+  
+  .recommendation-type.writing {
+    background-color: rgba(54, 185, 204, 0.2);
+    color: #36b9cc;
+  }
+  
+  .recommendation-type.lifestyle {
+    background-color: rgba(246, 194, 62, 0.2);
+    color: #f6c23e;
+  }
+  
+  .recommendation-type.social {
+    background-color: rgba(231, 74, 59, 0.2);
+    color: #e74a3b;
+  }
+  
+  .recommendation-type.breathing {
+    background-color: rgba(133, 135, 150, 0.2);
+    color: #858796;
+  }
+  
+  .recommendation-type.coping_strategy {
+    background-color: rgba(105, 70, 180, 0.2);
+    color: #6946b4;
+  }
+  
+  /* Dashboard styles */
+  .stat-card {
+    border-left: 4px solid;
+    padding: 1rem;
+  }
+  
+  .stat-card.primary {
+    border-left-color: #4e73df;
+  }
+  
+  .stat-card.success {
+    border-left-color: #1cc88a;
+  }
+  
+  .stat-card.info {
+    border-left-color: #36b9cc;
+  }
+  
+  .stat-card.warning {
+    border-left-color: #f6c23e;
+  }
+  
+  .stat-icon {
+    font-size: 2rem;
+    opacity: 0.3;
+  }
+  
+  /* Loading states */
+  .loading {
+    position: relative;
+  }
+  
+  .loading::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    z-index: 10;
+  }
+  
+  .loading::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top-color: #4e73df;
+    animation: spin 1s linear infinite;
+    z-index: 20;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+  
+  /* Footer */
+  footer {
+    margin-top: auto;
+    padding: 2rem 0;
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Disclaimer */
+  .disclaimer {
+    padding: 1rem;
+    background-color: rgba(246, 194, 62, 0.1);
+    border-left: 4px solid #f6c23e;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 767.98px) {
+    .hero-section {
+      padding: 3rem 0;
+    }
+    
+    .message-content {
+      max-width: 85%;
+    }
+    
+    .question-options {
+      flex-direction: column;
+    }
+  }
+  

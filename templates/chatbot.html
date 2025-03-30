@@ -1,0 +1,130 @@
+{% extends "layout.html" %}
+
+{% block title %}- Support Chat{% endblock %}
+
+{% block styles %}
+<style>
+    .chat-container {
+        height: 70vh;
+        min-height: 500px;
+    }
+    
+    .welcome-message {
+        text-align: center;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        background-color: rgba(78, 115, 223, 0.1);
+        border-radius: 0.5rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex align-items-center justify-content-between">
+                    <h5 class="mb-0 font-weight-bold text-primary">
+                        <i class="fas fa-robot me-2"></i> Mental Support Assistant
+                    </h5>
+                    <button id="end-session-btn" class="btn btn-sm btn-outline-secondary">
+                        <i class="fas fa-times me-1"></i> End Chat
+                    </button>
+                </div>
+                <div class="card-body p-0">
+                    <div id="chat-container" class="chat-container" data-session-id="{{ chat_history[0].session_id if chat_history else '' }}">
+                        <div id="chat-messages" class="chat-messages">
+                            {% if not chat_history %}
+                            <div class="welcome-message">
+                                <h5 class="mb-2">Welcome to Mental Support Chat</h5>
+                                <p class="mb-0">I'm here to listen and provide emotional support. How are you feeling today?</p>
+                            </div>
+                            {% else %}
+                            {% for message in chat_history %}
+                            <div class="chat-message {% if message.is_user %}user-message justify-content-end{% else %}bot-message justify-content-start{% endif %}">
+                                <div class="message-content {% if message.is_user %}bg-primary text-white{% else %}bg-light{% endif %}">
+                                    {{ message.message | replace('\n', '<br>') | safe }}
+                                </div>
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input p-3 border-top">
+                        <form id="chat-form" class="d-flex gap-2">
+                            <input type="text" id="message-input" class="form-control" placeholder="Type your message here..." autocomplete="off">
+                            <button type="submit" id="send-button" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="card-footer bg-light small">
+                    <div class="row">
+                        <div class="col-md-6 mb-2 mb-md-0">
+                            <i class="fas fa-shield-alt me-1"></i> Your conversation is private and confidential
+                        </div>
+                        <div class="col-md-6 text-md-end">
+                            <i class="fas fa-info-circle me-1"></i> Not a substitute for professional mental health care
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">About This Support Chat</h6>
+                </div>
+                <div class="card-body">
+                    <p>This AI-powered support assistant is designed to provide emotional support and a listening ear. You can talk about your feelings, challenges, or anything that's on your mind.</p>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6 mb-3 mb-md-0">
+                            <div class="d-flex">
+                                <div class="me-3">
+                                    <i class="fas fa-check-circle fa-2x text-success"></i>
+                                </div>
+                                <div>
+                                    <h6>How It Can Help</h6>
+                                    <ul class="ps-3 mb-0">
+                                        <li>Provide a safe space to express yourself</li>
+                                        <li>Offer emotional validation and support</li>
+                                        <li>Suggest simple coping strategies</li>
+                                        <li>Connect you with relevant resources</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex">
+                                <div class="me-3">
+                                    <i class="fas fa-exclamation-circle fa-2x text-warning"></i>
+                                </div>
+                                <div>
+                                    <h6>Limitations</h6>
+                                    <ul class="ps-3 mb-0">
+                                        <li>Not a replacement for professional care</li>
+                                        <li>Cannot provide medical or psychiatric advice</li>
+                                        <li>Not equipped to handle crisis situations</li>
+                                        <li>Should not be used for emergency support</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-warning mt-4 mb-0">
+                        <strong>In Crisis?</strong> If you're experiencing a mental health emergency or having thoughts of self-harm, please immediately contact a crisis helpline or emergency services.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/chatbot.js') }}"></script>
+{% endblock %}
