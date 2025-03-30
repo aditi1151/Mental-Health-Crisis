@@ -1,7 +1,9 @@
+
 let chatHistory = [];
 let chatSessionId = null;
 
 document.addEventListener('DOMContentLoaded', function() {
+ 
   const chatForm = document.getElementById('chat-form');
   if (chatForm) {
     chatForm.addEventListener('submit', sendMessage);
@@ -20,6 +22,10 @@ document.addEventListener('DOMContentLoaded', function() {
   scrollChatToBottom();
 });
 
+/**
+ * Send user message to chatbot
+ * @param {Event} event - Form submission event
+ */
 function sendMessage(event) {
   event.preventDefault();
   
@@ -29,11 +35,15 @@ function sendMessage(event) {
   if (!userMessage) {
     return;
   }
-  
   appendMessage(userMessage, true);
+  
+ 
   messageInput.value = '';
+  
+
   showTypingIndicator();
   
+
   const formData = new FormData();
   formData.append('message', userMessage);
   
@@ -49,9 +59,12 @@ function sendMessage(event) {
   })
   .then(data => {
     hideTypingIndicator();
+    
     if (data.status === 'success') {
+   
       appendMessage(data.response, false);
     } else {
+    
       appendErrorMessage('Sorry, I encountered an error. Please try again.');
     }
   })
@@ -62,6 +75,12 @@ function sendMessage(event) {
   });
 }
 
+
+/**
+ * Append a message to the chat
+ * @param {string} message - The message text
+ * @param {boolean} isUser - True if the message is from the user, false if from the bot
+ */
 function appendMessage(message, isUser) {
   const chatMessages = document.getElementById('chat-messages');
   
@@ -78,8 +97,8 @@ function appendMessage(message, isUser) {
     messageDiv.classList.add('justify-content-start');
     messageContent.classList.add('bg-light');
   }
-  
-  messageContent.innerHTML = message.replace(/\n/g, '<br>');
+  const formattedMessage = message.replace(/\n/g, '<br>');
+  messageContent.innerHTML = formattedMessage;
   
   messageDiv.appendChild(messageContent);
   chatMessages.appendChild(messageDiv);
@@ -92,6 +111,7 @@ function appendMessage(message, isUser) {
   
   scrollChatToBottom();
 }
+
 
 function showTypingIndicator() {
   const chatMessages = document.getElementById('chat-messages');
@@ -114,6 +134,7 @@ function showTypingIndicator() {
   }
 }
 
+
 function hideTypingIndicator() {
   const typingIndicator = document.getElementById('typing-indicator');
   if (typingIndicator) {
@@ -121,6 +142,10 @@ function hideTypingIndicator() {
   }
 }
 
+/**
+ * Append an error message to the chat
+ * @param {string} errorText - The error message
+ */
 function appendErrorMessage(errorText) {
   const chatMessages = document.getElementById('chat-messages');
   
@@ -143,6 +168,7 @@ function scrollChatToBottom() {
     chatMessages.scrollTop = chatMessages.scrollHeight;
   }
 }
+
 
 function endChatSession() {
   const endSessionBtn = document.getElementById('end-session-btn');
@@ -169,6 +195,7 @@ function endChatSession() {
   })
   .then(data => {
     if (data.status === 'success') {
+   
       appendSystemMessage('Chat session ended. Your recommendations have been updated.');
       
       const messageInput = document.getElementById('message-input');
@@ -191,19 +218,28 @@ function endChatSession() {
         endSessionBtn.disabled = false;
         endSessionBtn.textContent = 'End Chat';
       }
+      
+      
       appendErrorMessage('Failed to end chat session. Please try again.');
     }
   })
   .catch(error => {
     console.error('Error ending chat session:', error);
+    
+
     if (endSessionBtn) {
       endSessionBtn.disabled = false;
       endSessionBtn.textContent = 'End Chat';
     }
+    
     appendErrorMessage('Error connecting to server. Please try again.');
   });
 }
 
+/**
+ * Append a system message to the chat
+ * @param {string} message - The system message text
+ */
 function appendSystemMessage(message) {
   const chatMessages = document.getElementById('chat-messages');
   
